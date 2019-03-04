@@ -105,7 +105,11 @@
 <meta property="og:description" content="SQL injection is one of the most harmful vulnerabilities.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://8fa94.github.io/img/sql01.png">
-<meta property="og:updated_time" content="2019-03-04T11:06:26.390Z">
+<meta property="og:image" content="http://8fa94.github.io/img/sql02.png">
+<meta property="og:image" content="http://8fa94.github.io/img/sql03.png">
+<meta property="og:image" content="http://8fa94.github.io/img/sql04.png">
+<meta property="og:image" content="http://8fa94.github.io/img/sql05.png">
+<meta property="og:updated_time" content="2019-03-04T11:55:51.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL_Injection_Attack">
 <meta name="twitter:description" content="SQL injection is one of the most harmful vulnerabilities.">
@@ -372,7 +376,7 @@
                 
               
 
-              <time title="Created: 2019-03-04 15:14:16 / Modified: 19:06:26" itemprop="dateCreated datePublished" datetime="2019-03-04T15:14:16+08:00">2019-03-04</time>
+              <time title="Created: 2019-03-04 15:14:16 / Modified: 19:55:51" itemprop="dateCreated datePublished" datetime="2019-03-04T15:14:16+08:00">2019-03-04</time>
             
 
             
@@ -434,8 +438,10 @@
 </tbody>
 </table>
 <h2 id="整型注入"><a href="#整型注入" class="headerlink" title="整型注入"></a>整型注入</h2><h3 id="联合查询注入"><a href="#联合查询注入" class="headerlink" title="联合查询注入"></a>联合查询注入</h3><p>因为联合注入比较简单所以就先写联合注入。(<strong><del>真实</del></strong></p>
-<h4 id="Step1-获取字段总数："><a href="#Step1-获取字段总数：" class="headerlink" title="Step1.获取字段总数："></a>Step1.获取字段总数：</h4><p>方法: 使用Order by  /  Group by来检测有多少个字段;<br><img src="/img/sql01.png" alt="order_by01"></p>
-<h4 id="Step2-获取数据库名称："><a href="#Step2-获取数据库名称：" class="headerlink" title="Step2.获取数据库名称："></a>Step2.获取数据库名称：</h4>
+<h4 id="Step1-获取字段总数："><a href="#Step1-获取字段总数：" class="headerlink" title="Step1.获取字段总数："></a>Step1.获取字段总数：</h4><p><strong>原理</strong>:Order by/Group by 超出字段总数时会报错.<br><code>SELECT * FROM table_name WHERE column_name = 1 order by 1~N</code><br>测试直到报错,就有N-1个字段;<br>(e.g:<br><img src="/img/sql01.png" alt="order_by01"><br><img src="/img/sql02.png" alt="order_by02"><br>可见有3个字段;然后进行联合查询.<br><code>SELECT * FROM table_name WHERE  column_name = ?  UNION SELECT 1,2,3,4,…</code><br><img src="/img/sql03.png" alt="union01"></p>
+<h4 id="Step2-获取数据库名称："><a href="#Step2-获取数据库名称：" class="headerlink" title="Step2.获取数据库名称："></a>Step2.获取数据库名称：</h4><p><strong>原理</strong>:使用mysql自带的database()函数获取数据库名.<br><code>SELECT * FROM table_name WHERE  column_name = ?  UNION SELECT database(),2,3,4,…</code><br><img src="/img/sql04.png" alt="database"></p>
+<h4 id="Step3-获取数据库里面的表"><a href="#Step3-获取数据库里面的表" class="headerlink" title="Step3.获取数据库里面的表:"></a>Step3.获取数据库里面的表:</h4><p><strong>原理:</strong>在MySQL5.x中,information_schema库里面保存着关于MySQL服务器所维护的所有其他数据库的信息。<br>数据库里所有的表,所有的列名等等都在information_schema里面;<br><code>UNION  SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = database() LIMIT 0,1</code>;<br>注:表名可用十六进制<br><img src="/img/sql05.png" alt="table"></p>
+
       
     </div>
 
@@ -616,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#产生原因"><span class="nav-number">1.</span> <span class="nav-text">产生原因:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。"><span class="nav-number">1.1.</span> <span class="nav-text">当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL注入的分类"><span class="nav-number">2.</span> <span class="nav-text">SQL注入的分类:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型注入"><span class="nav-number">2.1.</span> <span class="nav-text">整型注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联合查询注入"><span class="nav-number">2.1.1.</span> <span class="nav-text">联合查询注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-获取字段总数："><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Step1.获取字段总数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-获取数据库名称："><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Step2.获取数据库名称：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#产生原因"><span class="nav-number">1.</span> <span class="nav-text">产生原因:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。"><span class="nav-number">1.1.</span> <span class="nav-text">当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL注入的分类"><span class="nav-number">2.</span> <span class="nav-text">SQL注入的分类:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型注入"><span class="nav-number">2.1.</span> <span class="nav-text">整型注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联合查询注入"><span class="nav-number">2.1.1.</span> <span class="nav-text">联合查询注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-获取字段总数："><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Step1.获取字段总数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-获取数据库名称："><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Step2.获取数据库名称：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-获取数据库里面的表"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Step3.获取数据库里面的表:</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
