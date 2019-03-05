@@ -96,31 +96,25 @@
 
 
 
-  <meta name="description" content="SQL injection is one of the most harmful vulnerabilities.">
-<meta name="keywords" content="SQL_Injection">
+  <meta name="description" content="对多级指针一些自己的理解!">
+<meta name="keywords" content="C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL_Injection_Attack">
-<meta property="og:url" content="http://8fa94.github.io/2019/03/04/SQL-Injection-Attack/index.html">
+<meta property="og:title" content="C语言多级指针的理解">
+<meta property="og:url" content="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/index.html">
 <meta property="og:site_name" content="8FA94">
-<meta property="og:description" content="SQL injection is one of the most harmful vulnerabilities.">
+<meta property="og:description" content="对多级指针一些自己的理解!">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://8fa94.github.io/img/sql01.png">
-<meta property="og:image" content="http://8fa94.github.io/img/sql02.png">
-<meta property="og:image" content="http://8fa94.github.io/img/sql03.png">
-<meta property="og:image" content="http://8fa94.github.io/img/sql04.png">
-<meta property="og:image" content="http://8fa94.github.io/img/sql05.png">
-<meta property="og:updated_time" content="2019-03-04T11:55:51.938Z">
+<meta property="og:updated_time" content="2019-03-05T14:11:04.895Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL_Injection_Attack">
-<meta name="twitter:description" content="SQL injection is one of the most harmful vulnerabilities.">
-<meta name="twitter:image" content="http://8fa94.github.io/img/sql01.png">
+<meta name="twitter:title" content="C语言多级指针的理解">
+<meta name="twitter:description" content="对多级指针一些自己的理解!">
 
 
 
 
 
 
-  <link rel="canonical" href="http://8fa94.github.io/2019/03/04/SQL-Injection-Attack/">
+  <link rel="canonical" href="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/">
 
 
 
@@ -130,7 +124,7 @@
   };
 </script>
 
-  <title>SQL_Injection_Attack | 8FA94</title>
+  <title>C语言多级指针的理解 | 8FA94</title>
   
 
 
@@ -333,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://8fa94.github.io/2019/03/04/SQL-Injection-Attack/">
+    <link itemprop="mainEntityOfPage" href="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="8Fa94">
@@ -350,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SQL_Injection_Attack
+          <h1 class="post-title" itemprop="name headline">C语言多级指针的理解
 
               
             
@@ -376,7 +370,7 @@
                 
               
 
-              <time title="Created: 2019-03-04 15:14:16 / Modified: 19:55:51" itemprop="dateCreated datePublished" datetime="2019-03-04T15:14:16+08:00">2019-03-04</time>
+              <time title="Created: 2019-03-05 21:47:32 / Modified: 22:11:04" itemprop="dateCreated datePublished" datetime="2019-03-05T21:47:32+08:00">2019-03-05</time>
             
 
             
@@ -415,32 +409,12 @@
       
 
       
-        <p>SQL injection is one of the most harmful vulnerabilities. <a id="more"></a></p>
-<h1 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因:"></a>产生原因:</h1><h2 id="当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。"><a href="#当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。" class="headerlink" title="当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。"></a><strong>当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。</strong></h2><h1 id="SQL注入的分类"><a href="#SQL注入的分类" class="headerlink" title="SQL注入的分类:"></a>SQL注入的分类:</h1><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>闭合</th>
-<th style="text-align:right">例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>整型注入(没有单双引号)</td>
-<td>×</td>
-<td style="text-align:right">$id</td>
-</tr>
-<tr>
-<td>字符串型注入(有单双引号)</td>
-<td>√</td>
-<td style="text-align:right">‘$id’</td>
-</tr>
-</tbody>
-</table>
-<h2 id="整型注入"><a href="#整型注入" class="headerlink" title="整型注入"></a>整型注入</h2><h3 id="联合查询注入"><a href="#联合查询注入" class="headerlink" title="联合查询注入"></a>联合查询注入</h3><p>因为联合注入比较简单所以就先写联合注入。(<strong><del>真实</del></strong></p>
-<h4 id="Step1-获取字段总数："><a href="#Step1-获取字段总数：" class="headerlink" title="Step1.获取字段总数："></a>Step1.获取字段总数：</h4><p><strong>原理</strong>:Order by/Group by 超出字段总数时会报错.<br><code>SELECT * FROM table_name WHERE column_name = 1 order by 1~N</code><br>测试直到报错,就有N-1个字段;<br>(e.g:<br><img src="/img/sql01.png" alt="order_by01"><br><img src="/img/sql02.png" alt="order_by02"><br>可见有3个字段;然后进行联合查询.<br><code>SELECT * FROM table_name WHERE  column_name = ?  UNION SELECT 1,2,3,4,…</code><br><img src="/img/sql03.png" alt="union01"></p>
-<h4 id="Step2-获取数据库名称："><a href="#Step2-获取数据库名称：" class="headerlink" title="Step2.获取数据库名称："></a>Step2.获取数据库名称：</h4><p><strong>原理</strong>:使用mysql自带的database()函数获取数据库名.<br><code>SELECT * FROM table_name WHERE  column_name = ?  UNION SELECT database(),2,3,4,…</code><br><img src="/img/sql04.png" alt="database"></p>
-<h4 id="Step3-获取数据库里面的表"><a href="#Step3-获取数据库里面的表" class="headerlink" title="Step3.获取数据库里面的表:"></a>Step3.获取数据库里面的表:</h4><p><strong>原理:</strong>在MySQL5.x中,information_schema库里面保存着关于MySQL服务器所维护的所有其他数据库的信息。<br>数据库里所有的表,所有的列名等等都在information_schema里面;<br><code>UNION  SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = database() LIMIT 0,1</code>;<br>注:表名可用十六进制<br><img src="/img/sql05.png" alt="table"></p>
+        <p>对多级指针一些自己的理解!<a id="more"></a></p>
+<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int a = 10;</span><br><span class="line">int* p = &amp;a;</span><br><span class="line">int** p2 = &amp;p; </span><br><span class="line">if(p2==&amp;p||*p2==p||**p2==*p)&#123;</span><br><span class="line">    printf(&quot;true&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第yi行"><a href="#第yi行" class="headerlink" title="第yi行"></a>第yi行</h2><p>int 型的变量a 为一个普通变量 有自己的地址值&amp;a<br>对他取地址就相当于降了一个级别 所以需要一个一级指针接收他的地址 即:int *</p>
+<h2 id="第er行"><a href="#第er行" class="headerlink" title="第er行"></a>第er行</h2><p>int* 型的变量p为一个一级指针变量 有自己的地址值&amp;p<br>因为p为int *类型 对他取地址就相当于降了两个级别 所以&amp;p对应的的接收类型为 int**</p>
+<h2 id="第san行"><a href="#第san行" class="headerlink" title="第san行"></a>第san行</h2><p>此时p2为int **类型 p2==&amp;p *p2==p **p2==*p </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><del>木有总结,当忘记的时候回来看看大概就想起来了.</del></p>
 
       
     </div>
@@ -464,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SQL-Injection/" rel="tag"># SQL_Injection</a>
+            <a href="/tags/C/" rel="tag"># C</a>
           
         </div>
       
@@ -477,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/win-cmd/" rel="next" title="基础命令使用 [ win篇 ]">
-                <i class="fa fa-chevron-left"></i> 基础命令使用 [ win篇 ]
+              <a href="/2019/03/04/SQL-Injection-Attack/" rel="next" title="SQL_Injection_Attack">
+                <i class="fa fa-chevron-left"></i> SQL_Injection_Attack
               </a>
             
           </div>
@@ -486,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/05/C语言多级指针的理解/" rel="prev" title="C语言多级指针的理解">
-                C语言多级指针的理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#产生原因"><span class="nav-number">1.</span> <span class="nav-text">产生原因:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。"><span class="nav-number">1.1.</span> <span class="nav-text">当客户端提交的数据未做处理或转义直接带入数据库就造成了SQL注入。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL注入的分类"><span class="nav-number">2.</span> <span class="nav-text">SQL注入的分类:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型注入"><span class="nav-number">2.1.</span> <span class="nav-text">整型注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联合查询注入"><span class="nav-number">2.1.1.</span> <span class="nav-text">联合查询注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-获取字段总数："><span class="nav-number">2.1.1.1.</span> <span class="nav-text">Step1.获取字段总数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-获取数据库名称："><span class="nav-number">2.1.1.2.</span> <span class="nav-text">Step2.获取数据库名称：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-获取数据库里面的表"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Step3.获取数据库里面的表:</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#直接上代码"><span class="nav-number">1.</span> <span class="nav-text">直接上代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第yi行"><span class="nav-number">1.1.</span> <span class="nav-text">第yi行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第er行"><span class="nav-number">1.2.</span> <span class="nav-text">第er行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第san行"><span class="nav-number">1.3.</span> <span class="nav-text">第san行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
