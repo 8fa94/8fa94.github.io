@@ -1995,7 +1995,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff8790;
+  background: #79c4f2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2738,10 +2738,4 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
-}
-body {
-  background: url("/images/bg.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
 }
