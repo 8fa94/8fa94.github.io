@@ -110,7 +110,9 @@
 <meta property="og:image" content="http://8fa94.github.io/img/reGeorg2.png">
 <meta property="og:image" content="http://8fa94.github.io/img/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.png">
 <meta property="og:image" content="http://8fa94.github.io/img/frp.png">
-<meta property="og:updated_time" content="2019-04-10T09:13:15.568Z">
+<meta property="og:image" content="http://8fa94.github.io/img/Cobalt_Strike.png">
+<meta property="og:image" content="http://8fa94.github.io/img/Cobalt_Strike2.png">
+<meta property="og:updated_time" content="2019-04-11T09:28:43.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代理工具总结">
 <meta name="twitter:description" content="对代理工具的总结">
@@ -339,7 +341,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="8Fa94">
       <meta itemprop="description" content="--Web Dog">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -394,7 +396,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-10 17:13:15" itemprop="dateModified" datetime="2019-04-10T17:13:15+08:00">2019-04-10</time>
+                <time title="Modified: 2019-04-11 17:28:43" itemprop="dateModified" datetime="2019-04-11T17:28:43+08:00">2019-04-11</time>
               
             
           </span>
@@ -450,7 +452,13 @@
 <p>这是服务端的简单的配置,通过方问<a href="http://x.x.x.x:7500可以查看frp的状态以及代理统计信息展示" target="_blank" rel="noopener">http://x.x.x.x:7500可以查看frp的状态以及代理统计信息展示</a>.<br>3.修改客户端配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x //修改为VPS的IP</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1 //需要转发内网的主机</span><br><span class="line">local_port = 22 //需要转发的端口</span><br><span class="line">remote_port = 6000 //转发到VPS的端口</span><br></pre></td></tr></table></figure></p>
 <p>4.将客户端和配置文件上传到目标服务器上,运行.<br><code>frpc.exe -c frpc.ini</code><br>连接vpsIp:reMotePort.<br><img src="/img/frp.png" alt="frp"></p>
 <h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结:"></a>总结:</h4><p>Frp杀软不杀,弊端就是客户端文件太大6-7M这样.</p>
-<h3 id="Cobalt-Strike自带的代理工具"><a href="#Cobalt-Strike自带的代理工具" class="headerlink" title="Cobalt Strike自带的代理工具"></a>Cobalt Strike自带的代理工具</h3>
+<h3 id="Cobalt-Strike自带的代理模块"><a href="#Cobalt-Strike自带的代理模块" class="headerlink" title="Cobalt Strike自带的代理模块"></a>Cobalt Strike自带的代理模块</h3><h4 id="项目地址-3"><a href="#项目地址-3" class="headerlink" title="项目地址:"></a>项目地址:</h4><p><a href="https://www.cobaltstrike.com/" target="_blank" rel="noopener">https://www.cobaltstrike.com/</a></p>
+<h4 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍:"></a>介绍:</h4><p>Cobalt Strike是一个强大的后渗透工具,具体用法要慢慢摸索..</p>
+<h4 id="使用方法-3"><a href="#使用方法-3" class="headerlink" title="使用方法:"></a>使用方法:</h4><p>1.Cobalt Strike上线之后用Pivoting里面的SOCKS Server模块<br><img src="/img/Cobalt_Strike.png" alt="Cobalt_Strike"><br>2.用SOCKS4连接到Cobalt Strike服务端IP:上面设置的端口<br><img src="/img/Cobalt_Strike2.png" alt="Cobalt_Strike2"></p>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结:"></a>总结:</h4><p>如果目标能上线Cobalt Strike的话,他自带的代理模块是非常好用的.</p>
+<h3 id="lcx"><a href="#lcx" class="headerlink" title="lcx"></a>lcx</h3><h4 id="项目地址-4"><a href="#项目地址-4" class="headerlink" title="项目地址:"></a>项目地址:</h4><p><a href="https://eternallybored.org/misc/netcat/" target="_blank" rel="noopener">https://eternallybored.org/misc/netcat/</a></p>
+<h4 id="介绍-4"><a href="#介绍-4" class="headerlink" title="介绍:"></a>介绍:</h4><p>lcx在内网入侵渗透中起着重要的角色,lcx进行端口转发的原理就是使不同端口之间形成一个回路。它常用于外网连接内网3389端口。</p>
+<h4 id="使用方法-4"><a href="#使用方法-4" class="headerlink" title="使用方法:"></a>使用方法:</h4>
       
     </div>
 
@@ -546,6 +554,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8Fa94">
+            
               <p class="site-author-name" itemprop="name">8Fa94</p>
               <div class="site-description motion-element" itemprop="description">--Web Dog</div>
           </div>
@@ -574,8 +584,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">tags</span>
                   
@@ -591,6 +599,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://9finger.cn" title="http://9finger.cn" rel="noopener" target="_blank">9指</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -612,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正向代理"><span class="nav-number">1.</span> <span class="nav-text">正向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图示"><span class="nav-number">1.1.</span> <span class="nav-text">图示:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http代理"><span class="nav-number">1.2.</span> <span class="nav-text">Http代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reDuh"><span class="nav-number">1.2.1.</span> <span class="nav-text">reDuh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弊端"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">弊端:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reGeorg"><span class="nav-number">1.2.2.</span> <span class="nav-text">reGeorg</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">总结:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向代理"><span class="nav-number">2.</span> <span class="nav-text">反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图示-1"><span class="nav-number">2.1.</span> <span class="nav-text">图示:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frp-强烈推荐"><span class="nav-number">2.1.1.</span> <span class="nav-text">Frp(强烈推荐!</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-2"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-2"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-2"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-1"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cobalt-Strike自带的代理工具"><span class="nav-number">2.1.2.</span> <span class="nav-text">Cobalt Strike自带的代理工具</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正向代理"><span class="nav-number">1.</span> <span class="nav-text">正向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图示"><span class="nav-number">1.1.</span> <span class="nav-text">图示:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Http代理"><span class="nav-number">1.2.</span> <span class="nav-text">Http代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reDuh"><span class="nav-number">1.2.1.</span> <span class="nav-text">reDuh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弊端"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">弊端:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reGeorg"><span class="nav-number">1.2.2.</span> <span class="nav-text">reGeorg</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">总结:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向代理"><span class="nav-number">2.</span> <span class="nav-text">反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图示-1"><span class="nav-number">2.1.</span> <span class="nav-text">图示:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frp-强烈推荐"><span class="nav-number">2.1.1.</span> <span class="nav-text">Frp(强烈推荐!</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-2"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-2"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-2"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-1"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cobalt-Strike自带的代理模块"><span class="nav-number">2.1.2.</span> <span class="nav-text">Cobalt Strike自带的代理模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-3"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-3"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-3"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">使用方法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-2"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">总结:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lcx"><span class="nav-number">2.1.3.</span> <span class="nav-text">lcx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址-4"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">项目地址:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-4"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">介绍:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法-4"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">使用方法:</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
